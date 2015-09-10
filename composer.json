@@ -1,6 +1,6 @@
 {
   "name": "wilgucki/csv",
-  "description": "Package for writing and reading CSV files",
+  "description": "Laravel 5 package for writing and reading CSV files",
   "keywords": ["Laravel", "csv"],
   "license": "MIT",
   "authors": [
