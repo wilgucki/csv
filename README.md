@@ -1,5 +1,7 @@
 #CSV
 
+Laravel 5 package to read and write CSV files.
+
 ##Instalation
 
 First run composer command
