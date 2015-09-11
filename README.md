@@ -68,7 +68,7 @@ File path is optional. If you won't provide it, CsvWriter will use memory as sto
 If you need to change delimiter, enclosure or escape you can do it by passing proper values to <code>create</code> method.
 More information about these values can be found here - [http://php.net/manual/en/function.fputcsv.php](http://php.net/manual/en/function.fputcsv.php).
 
-    $writer = CsvWriter::open('/path/to/file.csv', ';', '\'', '\\\\');
+    $writer = CsvWriter::create('/path/to/file.csv', ';', '\'', '\\\\');
 
 To add data into CSV file you can use <code>writeLine</code> or <code>writeAll</code> methods.
 
