@@ -23,9 +23,9 @@ class Reader
      * Open CSV file for reading
      *
      * @param      $file File name with path to open
-     * @param null $delimiter @see http://php.net/manual/en/function.fgetcsv.php
-     * @param null $enclosure @see http://php.net/manual/en/function.fgetcsv.php
-     * @param null $escape @see http://php.net/manual/en/function.fgetcsv.php
+     * @param null $delimiter @link http://php.net/manual/en/function.fgetcsv.php
+     * @param null $enclosure @link http://php.net/manual/en/function.fgetcsv.php
+     * @param null $escape @link http://php.net/manual/en/function.fgetcsv.php
      *
      * @return $this
      */

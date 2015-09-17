@@ -21,9 +21,9 @@ class Writer
      * Open CSV file for writing.
      *
      * @param string $file File name for writing CSV data. If not provided memory will be used as CSV file.
-     * @param null   $delimiter @see http://php.net/manual/en/function.fputcsv.php
-     * @param null   $enclosure @see http://php.net/manual/en/function.fputcsv.php
-     * @param null   $escape @see http://php.net/manual/en/function.fputcsv.php
+     * @param null   $delimiter @link http://php.net/manual/en/function.fputcsv.php
+     * @param null   $enclosure @link http://php.net/manual/en/function.fputcsv.php
+     * @param null   $escape @link http://php.net/manual/en/function.fputcsv.php
      *
      * @return $this
      */
