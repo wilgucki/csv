@@ -88,7 +88,7 @@ Don't forget to close file after you're done with your work.
 
     $writer->close();
 
-##Intergating with Eloquent models
+##Integrating with Eloquent models
 
 If you want/need to integrate CsvReader and/or CsvWriter with Eloquent model, there's a simple way to do this.
 The Csv package offers three traits in order to simplify the process. You can use all traits as well as one or two of your choise.
