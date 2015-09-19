@@ -8,6 +8,9 @@ class CsvServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->publishes([
+            __DIR__.'/../config/csv.php' => config_path('csv.php')
+        ], 'config');
     }
 
     public function register()

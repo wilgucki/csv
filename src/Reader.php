@@ -13,9 +13,9 @@ namespace Wilgucki\Csv;
 class Reader
 {
     protected $handle = null;
-    protected $delimiter = ',';
-    protected $enclosure = '"';
-    protected $escape = '\\';
+    protected $delimiter;
+    protected $enclosure;
+    protected $escape;
     protected $withHeader = false;
     protected $header = [];
 
@@ -33,14 +33,20 @@ class Reader
     {
         if ($delimiter !== null) {
             $this->delimiter = $delimiter;
+        } else {
+            $this->delimiter = config('csv.delimiter');
         }
 
         if ($enclosure !== null) {
             $this->enclosure = $enclosure;
+        } else {
+            $this->enclosure = config('csv.enclosure');
         }
 
         if ($escape !== null) {
             $this->escape = $escape;
+        } else {
+            $this->escape = config('csv.escape');
         }
 
         $this->handle = fopen($file, 'r+');
