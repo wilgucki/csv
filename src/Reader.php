@@ -110,6 +110,22 @@ class Reader
      */
     private function read()
     {
-        return fgetcsv($this->handle, null, $this->delimiter, $this->enclosure);
+        $out = fgetcsv($this->handle, null, $this->delimiter, $this->enclosure);
+
+        if (!is_array($out)) {
+            return $out;
+        }
+
+        if (config('csv.encoding.reader.enabled') === true) {
+            foreach ($out as $k => $v) {
+                $out[$k] = iconv(
+                    config('csv.encoding.reader.from'),
+                    config('csv.encoding.reader.to'),
+                    $v
+                );
+            }
+        }
+
+        return $out;
     }
 }

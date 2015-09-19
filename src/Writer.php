@@ -101,6 +101,16 @@ class Writer
      */
     private function write(array $row)
     {
+        if (config('csv.encoding.writer.enabled') === true) {
+            foreach ($row as $k => $v) {
+                $row[$k] = iconv(
+                    config('csv.encoding.writer.from'),
+                    config('csv.encoding.writer.to'),
+                    $v
+                );
+            }
+        }
+
         fputcsv($this->handle, $row, $this->delimiter, $this->enclosure, $this->escape);
     }
 }

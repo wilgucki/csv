@@ -33,5 +33,31 @@ return [
     |
     */
 
-    'escape' => '\\'
+    'escape' => '\\',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Convert CSV File Encoding
+    |--------------------------------------------------------------------------
+    |
+    | Options are set separately for reader and writer.
+    |
+    | enabled - if set to true enables encoding conversion
+    | from - input encoding
+    | to - output encoding
+    |
+    */
+
+    'encoding' => [
+        'reader' => [
+            'enabled' => false,
+            'from' => '',
+            'to' => ''
+        ],
+        'writer' => [
+            'enabled' => false,
+            'from' => '',
+            'to' => ''
+        ]
+    ]
 ];
