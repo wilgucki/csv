@@ -14,6 +14,9 @@ trait CsvImportable
                 if ($column == 'id') {
                     continue;
                 }
+                if ( ! in_array($column, $model->fillable)) {
+                    continue;
+                }
                 $model->{$column} = $value;
             }
             $model->save();
