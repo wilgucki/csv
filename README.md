@@ -164,6 +164,9 @@ CsvImportable trait allows you to import data from CSV file and save it to datab
 Imported file must have header line containing column names as they are named in database table. Primary key must be named **id**.
 CSV importer will update all rows with matching id and add every row that isn't found in table.
 
+Each column from CSV file is checked against <code>$fillable</code> array, letting to insert or update only these columns that are
+present in it.
+
     use Wilgucki\Csv\Traits\CsvImportable;
     
     class SomeModel extends Model

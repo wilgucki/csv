@@ -2,11 +2,14 @@
 
 namespace Wilgucki\Csv\Traits;
 
+use Wilgucki\Csv\Reader;
+
 trait CsvImportable
 {
     public static function fromCsv($file)
     {
-        $reader = \CsvReader::open($file);
+        $reader = new Reader();
+        $reader = $reader->open($file);
         $reader->getHeader();
         while (($row = $reader->readLine()) !== false) {
             $id = isset($row['id']) ? $row['id'] : null;
@@ -15,7 +18,7 @@ trait CsvImportable
                 if ($column == 'id') {
                     continue;
                 }
-                if ( ! in_array($column, $model->fillable)) {
+                if (!in_array($column, $model->fillable)) {
                     continue;
                 }
                 $model->{$column} = $value;

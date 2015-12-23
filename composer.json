@@ -6,11 +6,14 @@
   "authors": [
     {
       "name": "Maciej Wilgucki",
-      "email": "mwilgucki+packagist@gmail.com"
+      "email": "mwilgucki@gmail.com"
     }
   ],
   "require": {
     "php": ">=5.5.0"
+  },
+  "require-dev": {
+    "mikey179/vfsStream": "^1.6"
   },
   "autoload": {
     "psr-4": {

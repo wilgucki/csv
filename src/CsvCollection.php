@@ -6,14 +6,24 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CsvCollection extends Collection
 {
-    public function toCsv()
+    public function toCsv($setHeader = true)
     {
-        $writer = \CsvWriter::create();
+        $writer = new Writer();
+        $writer->create();
         $data = $this->toArray();
-        if (isset($data[0])) {
-            $writer->writeLine(array_keys($data[0]));
+
+        if (is_array(array_values($data)[0])) {
+            if ($setHeader) {
+                $writer->writeLine(array_keys($data[0]));
+            }
+            $writer->writeAll($data);
+        } else {
+            if ($setHeader) {
+                $writer->writeLine(array_keys($data));
+            }
+            $writer->writeLine($data);
         }
-        $writer->writeAll($data);
+
         $out = $writer->flush();
         $writer->close();
         return $out;

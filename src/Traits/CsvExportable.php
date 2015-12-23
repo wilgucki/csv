@@ -2,11 +2,14 @@
 
 namespace Wilgucki\Csv\Traits;
 
+use Wilgucki\Csv\Writer;
+
 trait CsvExportable
 {
     public function toCsv()
     {
-        $writer = \CsvWriter::create();
+        $writer = new Writer();
+        $writer->create();
         $data = $this->toArray();
         $writer->writeLine(array_keys($data));
         $writer->writeLine($data);
