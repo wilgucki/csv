@@ -32,19 +32,19 @@ class Writer
         if ($delimiter !== null) {
             $this->delimiter = $delimiter;
         } else {
-            $this->delimiter = \Config::get('csv.delimiter');
+            $this->delimiter = config('csv.delimiter');
         }
 
         if ($enclosure !== null) {
             $this->enclosure = $enclosure;
         } else {
-            $this->enclosure = \Config::get('csv.enclosure');
+            $this->enclosure = config('csv.enclosure');
         }
 
         if ($escape !== null) {
             $this->escape = $escape;
         } else {
-            $this->escape = \Config::get('csv.escape');
+            $this->escape = config('csv.escape');
         }
 
         $this->handle = fopen($file, 'w+');
@@ -101,11 +101,11 @@ class Writer
      */
     private function write(array $row)
     {
-        if (\Config::get('csv.encoding.writer.enabled') === true) {
+        if (config('csv.encoding.writer.enabled') === true) {
             foreach ($row as $k => $v) {
                 $row[$k] = iconv(
-                    \Config::get('csv.encoding.writer.from'),
-                    \Config::get('csv.encoding.writer.to'),
+                    config('csv.encoding.writer.from'),
+                    config('csv.encoding.writer.to'),
                     $v
                 );
             }
