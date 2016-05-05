@@ -9,26 +9,6 @@ class CsvCollectionTest extends \TestCase
 {
     public function testToCsv()
     {
-        Config::shouldReceive('get')
-            ->times(4)
-            ->with('csv.delimiter')
-            ->andReturn(';');
-
-        Config::shouldReceive('get')
-            ->times(4)
-            ->with('csv.enclosure')
-            ->andReturn('"');
-
-        Config::shouldReceive('get')
-            ->times(4)
-            ->with('csv.escape')
-            ->andReturn('\\');
-
-        Config::shouldReceive('get')
-            ->times(6)
-            ->with('csv.encoding.writer.enabled')
-            ->andReturn('false');
-
         $collection = new CsvCollection([['x' => 'a', 'y' => 'b', 'z' => 'c']]);
         $this->assertCount(3, explode(PHP_EOL, $collection->toCsv()));
 

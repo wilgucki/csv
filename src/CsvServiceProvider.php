@@ -3,6 +3,8 @@
 namespace Wilgucki\Csv;
 
 use Illuminate\Support\ServiceProvider;
+use Wilgucki\Csv\Commands\Export;
+use Wilgucki\Csv\Commands\Import;
 
 class CsvServiceProvider extends ServiceProvider
 {
@@ -22,5 +24,20 @@ class CsvServiceProvider extends ServiceProvider
         \App::bind('writer', function () {
             return new Writer();
         });
+
+        $this->app['command.csv.import'] = $this->app->share(
+            function ($app) {
+                return new Import();
+            }
+        );
+
+        $this->app['command.csv.export'] = $this->app->share(
+            function ($app) {
+                return new Export();
+            }
+        );
+
+        $this->commands('command.csv.import');
+        $this->commands('command.csv.export');
     }
 }

@@ -25,7 +25,7 @@ Add facades to <code>config/app.php</code> file
 
 Last step is to publish package config
 
-<code>php artisan vendor:publish</code>
+<code>php artisan vendor:publish --provider="Wilgucki\Csv\CsvServiceProvider"</code>
 
 ##Usage
 
@@ -178,7 +178,34 @@ present in it.
     
     SomeModel::fromCsv('/path/to/file.csv');
 
+##Command line
+
+###csv:import
+
+To import CSV file into database table, use csv:import command.
+
+<code>php artisan csv:import model csv-file</code>
+
+- model - model class name with its namespace
+- csv-file - file name with path relative to project's root directory
+
+If you would like to import users, you could use command like this (remember to use correct CSV file path)
+
+<code>php artisan csv:import "App\User" storage/users.csv</code>
+
+###csv:export
+
+This command allows you to export data from database table into CSV file.
+
+<code>php artisan csv:export model csv-file</code>
+
+- model - model class name with its namespace
+- csv-file - file name with path relative to project's root directory
+
+If you would like to export users, you could use command like this (remember to use correct CSV file path)
+
+<code>php artisan csv:export "App\User" storage/users.csv</code>
+
 ##TODO
 
-- tests
 - import/export to CSV with relations
