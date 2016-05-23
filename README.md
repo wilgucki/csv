@@ -199,7 +199,7 @@ This command allows you to export data from database table into CSV file.
 
 <code>php artisan csv:export model csv-file</code>
 
-- model - model class name with its namespace
+- model - model's class name with its namespace
 - csv-file - file name with path relative to project's root directory
 
 If you would like to export users, you could use command like this (remember to use correct CSV file path)
