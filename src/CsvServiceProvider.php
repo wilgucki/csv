@@ -25,19 +25,9 @@ class CsvServiceProvider extends ServiceProvider
             return new Writer();
         });
 
-        $this->app['command.csv.import'] = $this->app->share(
-            function ($app) {
-                return new Import();
-            }
-        );
-
-        $this->app['command.csv.export'] = $this->app->share(
-            function ($app) {
-                return new Export();
-            }
-        );
-
-        $this->commands('command.csv.import');
-        $this->commands('command.csv.export');
+        $this->commands([
+            Import::class,
+            Export::class,
+        ]);
     }
 }
