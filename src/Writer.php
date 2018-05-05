@@ -47,7 +47,7 @@ class Writer
             $this->escape = config('csv.escape');
         }
 
-        $this->handle = fopen($file, 'w+');
+        $this->handle = fopen($file, 'a+');
         return $this;
     }
 
