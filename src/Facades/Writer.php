@@ -8,6 +8,6 @@ class Writer extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'writer';
+        return 'csv-writer';
     }
 }

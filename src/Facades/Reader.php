@@ -8,6 +8,6 @@ class Reader extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'reader';
+        return 'csv-reader';
     }
 }

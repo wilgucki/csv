@@ -1,10 +1,11 @@
 <?php
-
 namespace Wilgucki\Csv;
 
 use Illuminate\Support\ServiceProvider;
 use Wilgucki\Csv\Commands\Export;
 use Wilgucki\Csv\Commands\Import;
+use Wilgucki\PhpCsv\Reader;
+use Wilgucki\PhpCsv\Writer;
 
 class CsvServiceProvider extends ServiceProvider
 {
@@ -17,12 +18,24 @@ class CsvServiceProvider extends ServiceProvider
 
     public function register()
     {
-        \App::bind('reader', function () {
-            return new Reader();
+        app()->bind('csv-reader', function () {
+            return new Reader(
+                config('csv.delimiter'),
+                config('csv.enclosure'),
+                config('csv.escape'),
+                config('csv.encoding.reader.enabled') ? config('csv.encoding.reader.from', null) : null,
+                config('csv.encoding.reader.enabled') ? config('csv.encoding.reader.to', null) : null
+            );
         });
 
-        \App::bind('writer', function () {
-            return new Writer();
+        app()->bind('csv-writer', function () {
+            return new Writer(
+                config('csv.delimiter'),
+                config('csv.enclosure'),
+                config('csv.escape'),
+                config('csv.encoding.writer.enabled') ? config('csv.encoding.writer.from', null) : null,
+                config('csv.encoding.writer.enabled') ? config('csv.encoding.writer.to', null) : null
+            );
         });
 
         $this->commands([

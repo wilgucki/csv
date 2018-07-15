@@ -10,14 +10,27 @@
     }
   ],
   "require": {
-    "php": ">=5.5.0"
+    "php": ">=7.0",
+    "wilgucki/php-csv": "^1.0"
   },
   "require-dev": {
-    "mikey179/vfsStream": "^1.6"
+    "phpunit/phpunit": "^7.1"
   },
   "autoload": {
     "psr-4": {
-      "Wilgucki\\Csv\\": "src"
+      "Wilgucki\\Csv\\": "src",
+      "Wilgucki\\Csv\\Test\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Wilgucki\\Csv\\CsvServiceProvider"
+      ],
+      "aliases": {
+        "CsvReader": "Wilgucki\\Csv\\Facades\\Reader",
+        "CsvWriter": "Wilgucki\\Csv\\Facades\\Writer"
+      }
     }
   }
 }

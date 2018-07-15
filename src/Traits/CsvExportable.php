@@ -1,15 +1,17 @@
 <?php
-
 namespace Wilgucki\Csv\Traits;
 
-use Wilgucki\Csv\Writer;
+use Wilgucki\PhpCsv\Writer;
 
 trait CsvExportable
 {
-    public function toCsv()
+    public function toCsv(bool $append = false)
     {
-        $writer = new Writer();
-        $writer->create();
+        /**
+         * @var Writer $writer
+         */
+        $writer = app()->get('csv-writer');
+        $writer->create($append ? 'a+' : 'w+');
         $data = $this->toArray();
         $writer->writeLine(array_keys($data));
         $writer->writeLine($data);

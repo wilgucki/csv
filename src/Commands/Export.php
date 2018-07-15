@@ -1,5 +1,4 @@
 <?php
-
 namespace Wilgucki\Csv\Commands;
 
 use Illuminate\Console\Command;
