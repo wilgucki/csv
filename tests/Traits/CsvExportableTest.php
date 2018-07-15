@@ -1,8 +1,7 @@
 <?php
+use Tests\TestCase;
 
-namespace packages\wilgucki\Csv\tests;
-
-class CsvExportableTest extends \TestCase
+class CsvExportableTest extends TestCase
 {
     public function testToCsv()
     {
