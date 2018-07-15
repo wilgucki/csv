@@ -1,14 +1,16 @@
 <?php
-
 namespace Wilgucki\Csv\Traits;
 
-use Wilgucki\Csv\Reader;
+use Wilgucki\PhpCsv\Reader;
 
 trait CsvImportable
 {
-    public static function fromCsv($file)
+    public static function fromCsv(string $file)
     {
-        $reader = new Reader();
+        /**
+         * @var Reader $reader
+         */
+        $reader = app()->get('csv-reader');
         $reader = $reader->open($file);
         $reader->getHeader();
         while (($row = $reader->readLine()) !== false) {
