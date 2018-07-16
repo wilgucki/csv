@@ -12,8 +12,8 @@ Install package with composer
 
     composer require wilgucki/csv
 
-For projects build with Laravel 5.5+ you can ommit next step. Package uses package discovery feature sa you don't need
-to modify config file. For older Laravel version you need to add service provider and aliases to
+For projects built with Laravel 5.5+ you can ommit next step. Package uses package discovery feature so you don't need
+to modify config file. For older Laravel versions you will need to add service provider and aliases to
 <code>config/app.php</code> file
 
     'providers' => [
@@ -127,7 +127,7 @@ Don't forget to close file after you're done with your work.
 
     $writer->close();
 
-##Integrating with Eloquent models
+## Integrating with Eloquent models
 
 If you want/need to integrate CsvReader and/or CsvWriter with Eloquent model there's a simple way of doing this.
 The Csv package provides three traits in order to simplify the process.
